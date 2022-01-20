@@ -18,15 +18,16 @@ type RideMemberMetaData = {
 
 export declare class Ride {
   readonly id: string;
+  readonly date?: string;
   readonly description?: string;
-  readonly length?: number;
+  readonly distance?: number;
+  readonly elevation_gain?: number;
+  readonly points?: string;
   readonly location?: string;
   readonly gpx?: string;
-  readonly date?: string;
-  readonly points?: string;
   readonly type?: string;
-  readonly website?: string;
   readonly attendance?: (RideMember | null)[];
+  readonly website?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Ride, RideMetaData>);
