@@ -10,6 +10,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "date": {
+                    "name": "date",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "description": {
                     "name": "description",
                     "isArray": false,
@@ -17,10 +24,24 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "length": {
-                    "name": "length",
+                "distance": {
+                    "name": "distance",
                     "isArray": false,
                     "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "elevation_gain": {
+                    "name": "elevation_gain",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "points": {
+                    "name": "points",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -38,31 +59,10 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "date": {
-                    "name": "date",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "points": {
-                    "name": "points",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "type": {
                     "name": "type",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "website": {
-                    "name": "website",
-                    "isArray": false,
-                    "type": "AWSURL",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -79,6 +79,13 @@ export const schema = {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "ride"
                     }
+                },
+                "website": {
+                    "name": "website",
+                    "isArray": false,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -267,5 +274,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "56b01c06c75e4a9c2701c03ed607ffa5"
+    "version": "0cc068107d47b8ec777020c8e07382b3"
 };
