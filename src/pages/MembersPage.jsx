@@ -3,7 +3,7 @@ import { Flex, Heading, Text } from "@aws-amplify/ui-react";
 import { DataStore } from "@aws-amplify/datastore";
 import { Member } from "../models";
 import { Predicates, SortDirection } from "aws-amplify";
-import MemberCreateForm from "../components/member/CreateMemberForm";
+import CreateMemberForm from "../components/member/CreateMemberForm";
 import UpdateMemberForm from "../components/member/UpdateMemberForm";
 
 const MembersPage = () => {
@@ -77,7 +77,7 @@ const MembersPage = () => {
             />
           ))}
         </Flex>
-        <MemberCreateForm addMember={addMember} />
+        <CreateMemberForm addMember={addMember} />
       </Flex>
     </Flex>
   );

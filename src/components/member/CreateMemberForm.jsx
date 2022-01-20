@@ -12,13 +12,6 @@ const CreateMemberForm = ({ addMember }) => {
     setLastName("");
   };
 
-  const handleFirstNameChange = (firstName) => {
-    setFirstName(firstName);
-  };
-  const handleLastNameChange = (lastName) => {
-    setLastName(lastName);
-  };
-
   return (
     <Flex direction="column">
       <Flex direction="row" width="100%">
@@ -28,14 +21,18 @@ const CreateMemberForm = ({ addMember }) => {
         <TextField
           label="Voornaam"
           value={firstName}
-          onChange={(e) => handleFirstNameChange(e.target.value)}
+          isRequired={true}
+          onChange={(e) => setFirstName(e.target.value)}
         />
         <TextField
           label="Achternaam"
           value={lastName}
-          onChange={(e) => handleLastNameChange(e.target.value)}
+          isRequired={true}
+          onChange={(e) => setLastName(e.target.value)}
         />
-        <Button onClick={handleClick}>Toevoegen</Button>
+        <Button type="submit" onClick={handleClick}>
+          Toevoegen
+        </Button>
       </Flex>
     </Flex>
   );

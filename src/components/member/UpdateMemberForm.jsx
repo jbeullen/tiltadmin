@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Button, Flex, Heading, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  TextField,
+  IconSave,
+  IconDelete,
+  ButtonGroup,
+} from "@aws-amplify/ui-react";
 
 const UpdateMemberForm = ({ member, changeMember, removeMember }) => {
   const [oldValue, setOldValue] = useState(member);
@@ -15,25 +22,26 @@ const UpdateMemberForm = ({ member, changeMember, removeMember }) => {
     removeMember(oldValue);
   };
 
-  const handleFirstNameChange = (firstName) => {
-    setFirstName(firstName);
-  };
-  const handleLastNameChange = (lastName) => {
-    setLastName(lastName);
-  };
-
   return (
-    <Flex as="form" direction="row" alignItems="stretch">
+    <Flex as="form" direction="row">
       <TextField
         value={firstName}
-        onChange={(e) => handleFirstNameChange(e.target.value)}
+        isRequired={true}
+        onChange={(e) => setFirstName(e.target.value)}
       />
       <TextField
         value={lastName}
-        onChange={(e) => handleLastNameChange(e.target.value)}
+        isRequired={true}
+        onChange={(e) => setLastName(e.target.value)}
       />
-      <Button onClick={handleUpdate}>Aanpassen</Button>
-      <Button onClick={handleDelete}>Verwijderen</Button>
+      <ButtonGroup>
+        <Button type="submit" onClick={handleUpdate}>
+          <IconSave />
+        </Button>
+        <Button onClick={handleDelete}>
+          <IconDelete />
+        </Button>
+      </ButtonGroup>
     </Flex>
   );
 };
