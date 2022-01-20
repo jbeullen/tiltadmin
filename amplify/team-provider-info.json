@@ -1,0 +1,15 @@
+{
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tiltadmin-prod-145134-authRole",
+      "UnauthRoleArn": "arn:aws:iam::753055355024:role/amplify-tiltadmin-prod-145134-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::753055355024:role/amplify-tiltadmin-prod-145134-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-tiltadmin-prod-145134-deployment",
+      "UnauthRoleName": "amplify-tiltadmin-prod-145134-unauthRole",
+      "StackName": "amplify-tiltadmin-prod-145134",
+      "StackId": "arn:aws:cloudformation:eu-central-1:753055355024:stack/amplify-tiltadmin-prod-145134/2179aa40-786e-11ec-88f4-06bfb25a9826",
+      "AmplifyAppId": "d7ape11hni73f"
+    }
+  }
+}
