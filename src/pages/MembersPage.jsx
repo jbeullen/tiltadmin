@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Flex, Heading, Text } from "@aws-amplify/ui-react";
+import { Flex, Heading } from "@aws-amplify/ui-react";
 import { DataStore } from "@aws-amplify/datastore";
 import { Member } from "../models";
 import { Predicates, SortDirection } from "aws-amplify";
 import CreateMemberForm from "../components/member/CreateMemberForm";
-import UpdateMemberForm from "../components/member/UpdateMemberForm";
+import MemberOverview from "../components/member/MemberOverview";
 
 const MembersPage = () => {
   const [members, setMembers] = useState([]);
 
   // CRUD Methods
-  const createMember = async (firstName, lastName) => {
+  const createMember = async (formData) => {
+    const [firstName, lastName] = formData;
     await DataStore.save(
       new Member({
         first_name: firstName,
@@ -24,7 +25,7 @@ const MembersPage = () => {
     const models = await DataStore.query(Member, Predicates.ALL, {
       sort: (s) => s.last_name(SortDirection.ASCENDING),
     });
-    setMembers(models);
+    await setMembers(models);
   };
 
   const updateMember = async (oldMember, formData) => {
@@ -42,8 +43,8 @@ const MembersPage = () => {
   };
 
   // Refresh methods
-  const addMember = async (firstName, lastName) => {
-    await createMember(firstName, lastName);
+  const addMember = async (formData) => {
+    await createMember(formData);
     await retrieveMembers();
   };
 
@@ -68,14 +69,11 @@ const MembersPage = () => {
           <Flex direction="row" width="100%" justifyContent="center">
             <Heading level={3}>Leden</Heading>
           </Flex>
-          {members.map((member) => (
-            <UpdateMemberForm
-              key={member.id}
-              member={member}
-              changeMember={changeMember}
-              removeMember={removeMember}
-            />
-          ))}
+          <MemberOverview
+            members={members}
+            removeMember={removeMember}
+            changeMember={changeMember}
+          />
         </Flex>
         <CreateMemberForm addMember={addMember} />
       </Flex>
