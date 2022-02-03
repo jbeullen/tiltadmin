@@ -41,7 +41,7 @@ export const schema = {
                 "points": {
                     "name": "points",
                     "isArray": false,
-                    "type": "String",
+                    "type": "Int",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -274,5 +274,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "0cc068107d47b8ec777020c8e07382b3"
+    "version": "2f118a44ac7d5d3611a60cdf5d54894b"
 };

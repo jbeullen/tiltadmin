@@ -7,7 +7,7 @@ const CreateMemberForm = ({ addMember }) => {
 
   const handleClick = () => {
     if (!firstName || !lastName) return;
-    addMember(firstName, lastName);
+    addMember([firstName, lastName]);
     setFirstName("");
     setLastName("");
   };

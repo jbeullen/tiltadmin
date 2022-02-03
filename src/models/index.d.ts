@@ -22,7 +22,7 @@ export declare class Ride {
   readonly description?: string;
   readonly distance?: number;
   readonly elevation_gain?: number;
-  readonly points?: string;
+  readonly points?: number;
   readonly location?: string;
   readonly gpx?: string;
   readonly type?: string;

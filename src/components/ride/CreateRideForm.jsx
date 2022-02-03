@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button, Flex, Heading, TextField } from "@aws-amplify/ui-react";
+import DateTimePicker from "react-datetime-picker";
 
-const CreateRideForm = () => {
-  const [date, setDate] = useState("");
+const CreateRideForm = ({ addRide }) => {
+  const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState("");
   const [distance, setDistance] = useState(0);
   const [elevationGain, setElevationGain] = useState(0);
@@ -13,10 +14,22 @@ const CreateRideForm = () => {
   const [website, setWebsite] = useState("");
 
   const handleClick = () => {
-    if ((!date, !description, !distance, !points)) return;
-    setDate("");
+    if (!date || !description || !distance || !points) return;
+    addRide([
+      date,
+      description,
+      distance,
+      elevationGain,
+      location,
+      points,
+      rideType,
+      gpx,
+      website,
+    ]);
+    setDate(new Date());
     setDescription("");
     setDistance(0);
+    setElevationGain(0);
     setLocation("");
     setPoints(0);
     setRideType("");
@@ -30,12 +43,14 @@ const CreateRideForm = () => {
         <Heading level={3}>Voeg Nieuwe Rit Toe</Heading>
       </Flex>
       <Flex as="form" direction="column">
-        <TextField
-          label="Datum en uur"
-          placeholder="2022-05-10:09:00:00.000Z"
+        <DateTimePicker
+          onChange={setDate}
           value={date}
-          isRequired={true}
-          onChange={(e) => setDate(e.target.value)}
+          required={true}
+          format={"d/M/yyyy H:m"}
+          className={"amplify-field-group"}
+          disableClock={true}
+          showLeadingZeros={false}
         />
         <TextField
           label="Omschrijving"
@@ -48,13 +63,13 @@ const CreateRideForm = () => {
           type="number"
           value={distance}
           isRequired={true}
-          onChange={(e) => setDistance(e.target.value)}
+          onChange={(e) => setDistance(e.target.valueAsNumber)}
         />
         <TextField
           label="Hoogtemeters"
           type="number"
           value={elevationGain}
-          onChange={(e) => setElevationGain(e.target.value)}
+          onChange={(e) => setElevationGain(e.target.valueAsNumber)}
         />
         <TextField
           label="Start Locatie"
@@ -66,7 +81,7 @@ const CreateRideForm = () => {
           type="number"
           value={points}
           isRequired={true}
-          onChange={(e) => setPoints(e.target.value)}
+          onChange={(e) => setPoints(e.target.valueAsNumber)}
         />
         <TextField
           label="Type"
