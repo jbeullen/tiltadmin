@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   Button,
   ButtonGroup,
-  IconSave,
+  Flex,
   IconCancel,
+  IconSave,
   TableCell,
   TableRow,
   TextField,
-  Flex,
 } from "@aws-amplify/ui-react";
 import DateTimePicker from "react-datetime-picker";
 
@@ -41,7 +41,12 @@ const EditRideDetail = ({ ride, changeRide, disableEditMode }) => {
 
   return (
     <TableRow>
-      <TableCell colSpan="10">
+      <TableCell
+        colSpan="10"
+        style={{
+          backgroundColor: "#eee",
+        }}
+      >
         <Flex as="form" direction="column">
           <DateTimePicker
             onChange={setDate}

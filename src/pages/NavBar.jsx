@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Flex, Button } from "@aws-amplify/ui-react";
+import { Button, Flex, Link } from "@aws-amplify/ui-react";
 import { Link as ReactRouterLink } from "react-router-dom";
 
 const NavBar = ({ signout }) => {
@@ -10,6 +10,9 @@ const NavBar = ({ signout }) => {
       </Link>
       <Link as={ReactRouterLink} to="/rides">
         <Button variation={"link"}>Ritten</Button>
+      </Link>
+      <Link as={ReactRouterLink} to="/attendance">
+        <Button variation={"link"}>Aanwezigheid</Button>
       </Link>
       <Button variation={"link"} onClick={signout}>
         Uitloggen
