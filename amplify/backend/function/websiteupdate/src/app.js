@@ -110,7 +110,7 @@ app.post("/leaderboard", function (req, res) {
       "Klassement is aangepast. Binnen een uurtje is dit zichtbaar. Vergeet niet te refreshen!!!",
   });
 });
-// comment
+
 app.listen(3000, function () {
   console.log("App started");
 });
