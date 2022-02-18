@@ -1,0 +1,10 @@
+[
+  {
+    "Action": ["s3:PutObject"],
+    "Resource": ["arn:aws:s3:::wtc-tilt.be/*"]
+  },
+  {
+    "Action": ["cloudfront:CreateInvalidation"],
+    "Resource": ["arn:aws:cloudfront::753055355024:distribution/E1RZ9P079EZ5I1"]
+  },
+]
