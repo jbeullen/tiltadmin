@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "tiltadmin",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authtiltadmin",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2022-02-03T08:13:18.772Z"
+}
