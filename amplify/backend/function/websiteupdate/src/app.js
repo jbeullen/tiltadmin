@@ -52,7 +52,7 @@ app.post("/calendar", function (req, res) {
     });
 
     const s3Params = {
-      Bucket: process.env.S3_BUCKET_WEBSITE,
+      Bucket: "wtc-tilt.be",
       Key: "kalender.html",
       Body: rendered,
       CacheControl: "max-age=0,no-cache,no-store,must-revalidate",
@@ -70,7 +70,7 @@ app.post("/calendar", function (req, res) {
         });
       } else {
         const cloudFrontParams = {
-          DistributionId: process.env.CLOUD_FRONT_DISTRIBUTION_ID_WEBSITE,
+          DistributionId: "E1RZ9P079EZ5I1",
           InvalidationBatch: {
             CallerReference: uuidv4(),
             Paths: {

@@ -15,12 +15,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "s3BucketWebsite": {
-      "Type": "String"
-    },
-    "cloudFrontDistributionIdWebsite": {
-      "Type": "String"
     }
   },
   "Conditions": {
@@ -75,12 +69,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "S3_BUCKET_WEBSITE": {
-              "Ref": "s3BucketWebsite"
-            },
-            "CLOUD_FRONT_DISTRIBUTION_ID_WEBSITE": {
-              "Ref": "cloudFrontDistributionIdWebsite"
             }
           }
         },
