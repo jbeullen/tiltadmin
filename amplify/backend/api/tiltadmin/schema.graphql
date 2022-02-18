@@ -1,0 +1,21 @@
+type Ride @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  date: AWSDateTime
+  description: String
+  distance: Int
+  elevation_gain: Int
+  points: Int
+  location: String
+  gpx: AWSURL
+  type: String
+  attendance: [Member] @manyToMany(relationName: "RideMember")
+  website: AWSURL
+}
+
+type Member @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  first_name: String
+  last_name: String
+  rides: [Ride] @manyToMany(relationName: "RideMember")
+}
+ 

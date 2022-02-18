@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "paths": {
+    "/calendar": {
+      "name": "/calendar",
+      "lambdaFunction": "websiteupdate",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/leaderboard": {
+      "name": "/leaderboard",
+      "lambdaFunction": "websiteupdate",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

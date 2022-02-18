@@ -6,3 +6,6 @@ coverage
 *.html
 src/models/*
 src/ui-components/*
+
+# Ignore Templates
+*.mustache

@@ -1,0 +1,13 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "s3BucketWebsite",
+      "environmentVariableName": "S3_BUCKET_WEBSITE"
+    },
+    {
+      "cloudFormationParameterName": "cloudFrontDistributionIdWebsite",
+      "environmentVariableName": "CLOUD_FRONT_DISTRIBUTION_ID_WEBSITE"
+    }
+  ]
+}
