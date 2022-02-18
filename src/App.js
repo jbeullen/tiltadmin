@@ -5,6 +5,7 @@ import MembersPage from "./pages/MembersPage";
 import RidesPage from "./pages/RidesPage";
 import NavBar from "./pages/NavBar";
 import AttendancePage from "./pages/AttendancePage";
+import WebsitePage from "./pages/WebsitePage";
 
 const App = ({ signOut }) => {
   return (
@@ -15,6 +16,7 @@ const App = ({ signOut }) => {
           <Route exact path="/" element={<MembersPage />} />
           <Route exact path="/rides" element={<RidesPage />} />
           <Route exact path="/attendance" element={<AttendancePage />} />
+          <Route exact path="/website" element={<WebsitePage />} />
         </Routes>
       </Router>
     </div>

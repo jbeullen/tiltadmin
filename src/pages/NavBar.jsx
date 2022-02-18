@@ -14,6 +14,9 @@ const NavBar = ({ signout }) => {
       <Link as={ReactRouterLink} to="/attendance">
         <Button variation={"link"}>Aanwezigheid</Button>
       </Link>
+      <Link as={ReactRouterLink} to="/website">
+        <Button variation={"link"}>Website</Button>
+      </Link>
       <Button variation={"link"} onClick={signout}>
         Uitloggen
       </Button>
