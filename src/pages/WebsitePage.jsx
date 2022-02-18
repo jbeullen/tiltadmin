@@ -15,6 +15,7 @@ import { API, Predicates, SortDirection } from "aws-amplify";
 
 const WebsitePage = () => {
   const [calendarMessage, setCalendarMessage] = useState("");
+  const [leaderBoardMessage, setLeaderBoardMessage] = useState("");
 
   const updateRides = async () => {
     setCalendarMessage("Updating...");
@@ -31,6 +32,23 @@ const WebsitePage = () => {
       }
     } catch (e) {
       await setCalendarMessage("Er liep iets fout, probeer later opnieuw.");
+      console.log(e);
+    }
+  };
+
+  const updateLeaderBoard = async () => {
+    setLeaderBoardMessage("Updating...");
+
+    try {
+      const result = await API.post("websiteupdateapi", "/leaderboard", {
+        body: [],
+      });
+      await setLeaderBoardMessage(result.message);
+      if (result.error) {
+        console.log(result.error);
+      }
+    } catch (e) {
+      await setLeaderBoardMessage("Er liep iets fout, probeer later opnieuw.");
       console.log(e);
     }
   };
@@ -57,6 +75,13 @@ const WebsitePage = () => {
                   <Button onClick={() => updateRides()}>Publiceer</Button>
                 </TableCell>
                 <TableCell>{calendarMessage}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Klassment</TableCell>
+                <TableCell>
+                  <Button onClick={() => updateLeaderBoard()}>Publiceer</Button>
+                </TableCell>
+                <TableCell>{leaderBoardMessage}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
