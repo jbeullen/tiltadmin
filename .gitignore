@@ -45,3 +45,4 @@ amplifytools.xcconfig
 amplify/team-provider-info.json
 custom-policies.json
 .idea/
+/amplify/backend/
