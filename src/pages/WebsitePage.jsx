@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@aws-amplify/ui-react";
 import { DataStore } from "@aws-amplify/datastore";
-import { Ride } from "../models";
+import { Member, Ride, RideMember } from "../models";
 import { API, Predicates, SortDirection } from "aws-amplify";
 
 const WebsitePage = () => {
@@ -38,10 +38,26 @@ const WebsitePage = () => {
 
   const updateLeaderBoard = async () => {
     setLeaderBoardMessage("Updating...");
+    const members = (await DataStore.query(Member)).map((member) => {
+      return {
+        id: member.id,
+        first_name: member.first_name,
+        last_name: member.last_name,
+      };
+    });
+
+    const attendance = (await DataStore.query(RideMember)).map((rideMember) => {
+      return {
+        id: rideMember.member.id,
+        points: rideMember.ride.points,
+      };
+    });
+
+    const body = { members: members, attendance: attendance };
 
     try {
       const result = await API.post("websiteupdateapi", "/leaderboard", {
-        body: [],
+        body: body,
       });
       await setLeaderBoardMessage(result.message);
       if (result.error) {
@@ -77,7 +93,7 @@ const WebsitePage = () => {
                 <TableCell>{calendarMessage}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Klassment</TableCell>
+                <TableCell>Klassement</TableCell>
                 <TableCell>
                   <Button onClick={() => updateLeaderBoard()}>Publiceer</Button>
                 </TableCell>

@@ -3,6 +3,7 @@ import {
   Button,
   IconAdd,
   IconCancel,
+  IconCheck,
   IconDelete,
   Table,
   TableBody,
@@ -92,6 +93,7 @@ const EditAttendanceDetail = ({ ride, disableEditMode }) => {
               <TableRow>
                 <TableCell as="th">Voornaam</TableCell>
                 <TableCell as="th">Naam</TableCell>
+                <TableCell as="th">Aanwezig</TableCell>
                 <TableCell as="th">&nbsp;</TableCell>
               </TableRow>
             </TableHead>
@@ -100,19 +102,28 @@ const EditAttendanceDetail = ({ ride, disableEditMode }) => {
                 <TableRow key={member.id}>
                   <TableCell>{member.first_name}</TableCell>
                   <TableCell>{member.last_name}</TableCell>
-                  <TableCell>
-                    {rideMembers
-                      .map((rm) => rm.member.id)
-                      .includes(member.id) ? (
-                      <Button onClick={() => removeRideAttendance(member.id)}>
-                        <IconDelete />
-                      </Button>
-                    ) : (
-                      <Button onClick={() => addRideAttendance(member)}>
-                        <IconAdd />
-                      </Button>
-                    )}
-                  </TableCell>
+
+                  {rideMembers.map((rm) => rm.member.id).includes(member.id) ? (
+                    <>
+                      <TableCell as="th">
+                        <IconCheck />
+                      </TableCell>
+                      <TableCell>
+                        <Button onClick={() => removeRideAttendance(member.id)}>
+                          <IconDelete />
+                        </Button>
+                      </TableCell>
+                    </>
+                  ) : (
+                    <>
+                      <TableCell as="th">&nbsp;</TableCell>
+                      <TableCell>
+                        <Button onClick={() => addRideAttendance(member)}>
+                          <IconAdd />
+                        </Button>
+                      </TableCell>
+                    </>
+                  )}
                 </TableRow>
               ))}
             </TableBody>
