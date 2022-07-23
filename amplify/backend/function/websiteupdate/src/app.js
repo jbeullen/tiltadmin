@@ -11,7 +11,7 @@ const s3 = new aws.S3();
 const cloudfront = new aws.CloudFront();
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(awsServerlessExpressMiddleware.eventContext());
 
 app.use(function (req, res, next) {
